@@ -10,8 +10,6 @@ struct Stack{
     int items[STACKSIZE];
 };
 
-struct Stack s;
-
 int empty(struct Stack *ps){
     if(ps->top == -1){
         return true;
@@ -27,7 +25,7 @@ void push(struct Stack *ps,int x){
         exit(1);
     }
     else{
-        int y = (ps->top)++;
+        int y =++(ps->top);
         ps->items[y]=x;
         cout<< "Pushed" <<endl;
     }
@@ -38,7 +36,7 @@ int pop(struct Stack *ps){
         cout << "Stack underflow" << endl;
         exit(1);
     }
-    int y = ps->items[top];
+    int y = ps->items[ps->top];
     (ps->top)--;
 
     return y;
@@ -47,6 +45,11 @@ int pop(struct Stack *ps){
 
 int main()
 {
-
+    struct Stack s;
+    struct Stack *ps = &s;
+    int x = 10;
+    push(ps,x);
+    int y = pop(ps);
+    cout << y ;
     return 0;
 }
