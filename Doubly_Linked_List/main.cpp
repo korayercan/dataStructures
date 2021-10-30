@@ -59,11 +59,23 @@ void pop(NODEPTR p, int *px){
 }
 int main()
 {
+    int x;
     NODEPTR first = get_node();
-    first->info=5;
-    push(first,10);
-    push(first->right,15);
-    cout<< "first" << first->right->right->info << endl;
+    first->info=1;
+    //push(first,10);
+    //push(first->right,15);
+    NODEPTR p=first;
+    while(true){
+        cin>>x;
+        if(x == EOF){
+            break;
+        }
+        push(p,x);
+        p = p->right;
+    }
+    for(NODEPTR p = first; p != NULL ; p = p -> right){
+        cout << p->info << endl;
+    }
 
     return 0;
 }
