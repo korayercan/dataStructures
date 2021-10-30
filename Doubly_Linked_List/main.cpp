@@ -61,9 +61,7 @@ int main()
 {
     int x;
     NODEPTR first = get_node();
-    first->info=1;
-    //push(first,10);
-    //push(first->right,15);
+    first->info=NULL;
     NODEPTR p=first;
     while(true){
         cin>>x;
@@ -73,7 +71,7 @@ int main()
         push(p,x);
         p = p->right;
     }
-    for(NODEPTR p = first; p != NULL ; p = p -> right){
+    for(NODEPTR p = first->right; p != NULL ; p = p -> right){
         cout << p->info << endl;
     }
 
