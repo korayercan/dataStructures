@@ -64,6 +64,30 @@ void reverse(NODEPTR first){
     first = previous;
 }
 
+void sirali(NODEPTR p,int x){
+
+    NODEPTR q,r;
+    while(p!=NULL){
+        q=p->next;
+        if(q!=NULL){
+            if(p->info>x&&q->info<x){
+                r=get_node();
+                r->info = x;
+                p->next = r;
+                r->next = q;
+            }
+            else{
+                p=q;
+            }
+        }
+        else{
+            q=get_node();
+            q->info=x;
+            p->next = q;
+        }
+    }
+}
+
 
 int main()
 {
