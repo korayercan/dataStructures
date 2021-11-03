@@ -50,9 +50,42 @@ NODEPTR search(NODEPTR first,int x){
     }
     return NULL;
 }
+void reverse(NODEPTR first){
+    NODEPTR p;
+    NODEPTR temp;
+    NODEPTR previous = NULL;
+    p = first;
+    while(p!=NULL){
+        temp = p->next;
+        p->next = previous;
+        previous = p;
+        p = temp;
+    }
+    first = previous;
+}
 
 
 int main()
 {
+    int x;
+    NODEPTR first = get_node();
+    first->info=NULL;
+    NODEPTR p=first;
+    //first->next = p;
+    p->next = NULL;
+    while(true){
+        cin>>x;
+        if(x == EOF){
+            break;
+        }
+        push(p,x);
+        p = p->next;
+    }
+
+    for(p = first->next; p != NULL ; p = p -> next){
+        cout << p->info << endl;
+    }
+
+
     return 0;
 }
