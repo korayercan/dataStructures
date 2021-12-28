@@ -75,7 +75,7 @@ function void secmelisýralama(){
 function void kabarcik(){
     int n; //1 den n e kadar olan listenin uzunluðu
     for(i=n;i>1;i--){
-        for(j=0;j>i-1;j++)
+        for(j=0;j<i-1;j++)
             if(D[j]>D[j+1])
                 yerdegis(j,j+1);
     }
